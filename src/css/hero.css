@@ -1,0 +1,114 @@
+.hero {
+    position: relative;
+    height: calc(100vh - var(--header-height));
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.hero__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.hero__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.hero__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 100%);
+}
+
+.hero__container {
+    padding-top: 2rem;
+}
+
+.hero__content {
+    max-width: 600px;
+    color: var(--white-color);
+}
+
+.hero__title {
+    font-size: var(--biggest-font-size);
+    color: var(--white-color);
+    margin-bottom: var(--mb-1-5);
+    line-height: 1.2;
+    animation: slideInLeft 1s ease-out;
+}
+
+.hero__subtitle {
+    font-size: var(--h2-font-size);
+    margin-bottom: var(--mb-2-5);
+    font-weight: var(--font-medium);
+    opacity: 0.9;
+    animation: slideInLeft 1.2s ease-out;
+}
+
+.hero__btns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    animation: slideInUp 1.4s ease-out;
+}
+
+/* ANIMATIONS */
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .hero {
+        height: auto;
+        padding: 5rem 0;
+    }
+    
+    .hero__overlay {
+        background: rgba(0, 0, 0, 0.6);
+    }
+
+    .hero__content {
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    .hero__btns {
+        justify-content: center;
+    }
+}
+
+@media screen and (min-width: 968px) {
+    .hero__container {
+        padding-top: 0;
+    }
+}
